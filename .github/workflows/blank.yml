@@ -15,6 +15,10 @@ jobs:
       - name: Descargar agenda desde Google Sheets
         run: |
           curl -s "https://opensheet.elk.sh/11PxH9851zmAAqXNYgdawuWWzppfNMza5pMwQ5LDx1sg/EvFH" > agendapower.json
+      
+      - name: Generar archivo para Twitch
+        run: |
+         jq -r '.[] | "📅 \(.Fecha) - \(.Evento) → \(.Link)"' agendapower.json > agenda.txt
 
       - name: Commit y push
         run: |

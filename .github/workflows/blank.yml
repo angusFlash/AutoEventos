@@ -1,0 +1,25 @@
+name: Update Agenda
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # se ejecuta cada hora
+  workflow_dispatch:       # lo podés lanzar a mano
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Descargar agenda desde Google Sheets
+        run: |
+          curl -s "https://opensheet.elk.sh/2PACX-1vTZzW-jfNOerKNIZ5pXctAFDQivGRfCbHnK_OTRCEPcMsHj6p7sBSx9UAehmj654RXoswuv6LsIWCkD/EvFH" > agendapower.json
+
+      - name: Commit y push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "actions@github.com"
+          git add agenda.json
+          git commit -m "Agenda actualizada automáticamente" || echo "No hay cambios"
+          git push

@@ -18,7 +18,7 @@ jobs:
       
       - name: Generar archivo para Twitch
         run: |
-         jq -r '.[] | "📅 \(.Fecha) - \(.Evento) → \(.Link)"' agendapower.json > agenda.txt
+         jq -r '.[] | "📅 \(.Fecha) - \(.Evento) → \(.Link) "' agendapower.json > agenda.txt
 
       - name: Commit y push
         run: |

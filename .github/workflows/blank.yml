@@ -14,7 +14,7 @@ jobs:
 
       - name: Descargar agenda desde Google Sheets
         run: |
-          curl -s "opensheet.vercel.app/2PACX-1vTZzW-jfNOerKNIZ5pXctAFDQivGRfCbHnK_OTRCEPcMsHj6p7sBSx9UAehmj654RXoswuv6LsIWCkD/EvFH" > agendapower.json
+          curl -s "https://opensheet.elk.sh/11PxH9851zmAAqXNYgdawuWWzppfNMza5pMwQ5LDx1sg/EvFH" > agendapower.json
 
       - name: Commit y push
         run: |
